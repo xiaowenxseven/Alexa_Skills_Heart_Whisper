@@ -72,6 +72,21 @@ class CustomHandler < AlexaSkillsRuby::Handler
     logger.info 'Envents processed'
   end
 
+  on_intent("CITY_TEST") do
+
+		# Access the slots
+    slots = request.intent.slots
+    puts slots.to_s
+
+		# Duration is returned in a particular format
+		# Called ISO8601. Translate this into seconds
+
+    cityname = request.intent.slots["city"]
+
+    response.set_output_speech_text("If you see this #{ cityname }. congratulation!")
+    logger.info 'City test processed'
+  end
+
 end
 
 # ----------------------------------------------------------------------
@@ -136,6 +151,10 @@ def events_of_pittsburgh
   #   resp_str += "#{order.to_s}. [#{event["name"]}]. Time: [#{event["dates"]["start"]["localDate"]}, #{event["dates"]["start"]["localTime"]}] . <br/>"
   # end
   return resp_str
+
+end
+
+
 
 end
 
