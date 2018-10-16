@@ -52,6 +52,17 @@ class CustomHandler < AlexaSkillsRuby::Handler
     logger.info 'Boring processed'
   end
 
+  on_intent("JOKES") do
+    array_of_lines = IO.readlines("jokes.txt")
+    resp = array_of_lines.sample
+		# add a response to Alexa
+    response.set_output_speech_text("Ok, boring girl. I tell you something. #{resp}")
+		# create a card response in the alexa app
+    response.set_simple_card("Soul Wanderer", "Jokes is processed")
+		# log the output if needed
+    logger.info 'Jokes processed'
+  end
+
 end
 
 # ----------------------------------------------------------------------
