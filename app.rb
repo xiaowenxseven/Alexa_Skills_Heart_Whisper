@@ -154,8 +154,4 @@ def events_of_pittsburgh
 
 end
 
-
-
-end
-
 private
