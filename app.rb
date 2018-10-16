@@ -34,6 +34,15 @@ class CustomHandler < AlexaSkillsRuby::Handler
     logger.info 'GetZodiacHoroscopeIntent processed'
   end
 
+  on_intent("WHAT") do
+		# add a response to Alexa
+    response.set_output_speech_text("This is the answer of what.")
+		# create a card response in the alexa app
+    response.set_simple_card("Soul Wanderer", "What is processed")
+		# log the output if needed
+    logger.info 'What processed'
+  end
+
 end
 
 # ----------------------------------------------------------------------
