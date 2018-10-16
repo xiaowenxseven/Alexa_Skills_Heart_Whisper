@@ -63,6 +63,15 @@ class CustomHandler < AlexaSkillsRuby::Handler
     logger.info 'Jokes processed'
   end
 
+  on_intent("EVENTS") do
+		# add a response to Alexa
+    response.set_output_speech_text("Ok, I tell you some events. #{events_of_pittsburgh} Go! boy!")
+		# create a card response in the alexa app
+    response.set_simple_card("Soul Wanderer", "Envents is processed")
+		# log the output if needed
+    logger.info 'Envents processed'
+  end
+
 end
 
 # ----------------------------------------------------------------------
@@ -109,5 +118,25 @@ end
 #   METHODS
 #   Add any custom methods below
 # ----------------------------------------------------------------------
+def events_of_pittsburgh
+
+  ticketmaster_url = "https://app.ticketmaster.com/discovery/v2/events.json?preferredCountry=us&radius=10&unit=miles&city=Pittsburgh&apikey=iBBPldGGNG4E7bUFw79GZwPc0goLo1nf"
+  response = HTTParty.get( ticketmaster_url )
+
+
+  #JSON.parse( )
+  response["page"].to_json
+
+  event = response["_embedded"]["events"].sample
+  resp_str = ""
+  resp_str += "#{event["name"]}. [Address] #{event["_embedded"]["venues"][0]["address"]["line1"]}"
+  # order = 0
+  # for event in response["_embedded"]["events"]
+  #   order = order + 1
+  #   resp_str += "#{order.to_s}. [#{event["name"]}]. Time: [#{event["dates"]["start"]["localDate"]}, #{event["dates"]["start"]["localTime"]}] . <br/>"
+  # end
+  return resp_str
+
+end
 
 private
