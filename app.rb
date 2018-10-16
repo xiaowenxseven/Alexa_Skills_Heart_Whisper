@@ -65,7 +65,7 @@ class CustomHandler < AlexaSkillsRuby::Handler
 
   on_intent("EVENTS") do
 		# add a response to Alexa
-    response.set_output_speech_text("Ok, I tell you some events. #{events_of_pittsburgh} Go! boy!")
+    response.set_output_speech_text("Ok, boring child. #{events_of_pittsburgh}. Go! boy!")
 		# create a card response in the alexa app
     response.set_simple_card("Soul Wanderer", "Envents is processed")
 		# log the output if needed
@@ -129,7 +129,7 @@ def events_of_pittsburgh
 
   event = response["_embedded"]["events"].sample
   resp_str = ""
-  resp_str += "#{event["name"]}. [Address] #{event["_embedded"]["venues"][0]["address"]["line1"]}"
+  resp_str += "Here is a interesting event called #{event["name"]}. The address is #{event["_embedded"]["venues"][0]["address"]["line1"]}"
   # order = 0
   # for event in response["_embedded"]["events"]
   #   order = order + 1
