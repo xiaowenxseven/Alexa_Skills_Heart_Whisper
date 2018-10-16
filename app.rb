@@ -45,9 +45,9 @@ class CustomHandler < AlexaSkillsRuby::Handler
 
   on_intent("BORING") do
 		# add a response to Alexa
-    # response.set_output_speech_text("I think you are really boring.")
-    response.set_output_speech("Welcome to Sinatra Sampler. I want to tell you a secret. I can't do very much")
-    response.set_output_speech_ssml('<speak>Welcome to Sinatra Sampler. <audio src="soundbank://soundlibrary/human/amzn_sfx_clear_throat_ahem_01"/> I want to tell you a secret. <amazon:effect name="whispered">I can\'t do very much</amazon:effect> </speak>')
+    response.set_output_speech_text("I think you are really boring.")
+    # response.set_output_speech("Welcome to Sinatra Sampler. I want to tell you a secret. I can't do very much")
+    # response.set_output_speech_ssml('<speak>Welcome to Sinatra Sampler. <audio src="soundbank://soundlibrary/human/amzn_sfx_clear_throat_ahem_01"/> I want to tell you a secret. <amazon:effect name="whispered">I can\'t do very much</amazon:effect> </speak>')
 		# create a card response in the alexa app
     response.set_simple_card("Soul Wanderer", "Boring is processed")
 		# log the output if needed
