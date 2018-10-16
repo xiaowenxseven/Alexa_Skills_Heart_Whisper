@@ -78,10 +78,12 @@ class CustomHandler < AlexaSkillsRuby::Handler
     slots = request.intent.slots
     puts slots.to_s
 
+    cityname = slots[0].value
+
 		# Duration is returned in a particular format
 		# Called ISO8601. Translate this into seconds
 
-    cityname = request.intent.slots.city.["name"]
+    #cityname = request.intent.slots.city.["name"]
 
     response.set_output_speech_text("If you see this #{ cityname }. congratulation!")
     logger.info 'City test processed'
