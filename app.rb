@@ -84,7 +84,7 @@ class CustomHandler < AlexaSkillsRuby::Handler
 
     #cityname = request.intent.slots.city.["name"]
 
-    response.set_output_speech_text("If you see this #{ cityname }. congratulations!")
+    response.set_output_speech_text("If you see this #{cityname}. congratulations!")
     response.set_simple_card("Soul Wanderer", "City test is processed")
     logger.info 'City test processed'
   end
