@@ -104,6 +104,17 @@ class CustomHandler < AlexaSkillsRuby::Handler
     logger.info 'Badbot processed'
   end
 
+  on_intent("NOT_GO_OUT") do
+
+    array_of_lines = IO.readlines("jokes.txt")
+    resp = array_of_lines.sample
+    response.set_output_speech_text("Fine! Stay at home, girl! I think you must have no boyfriend or girlfriend. Whatever. Listen to me. I’m telling you some jokes. #{resp}. funny? right?")
+		# create a card response in the alexa app
+    response.set_simple_card("Soul Wanderer", "Badbot is processed")
+		# log the output if needed
+    logger.info 'Badbot processed'
+  end
+
 end
 
 # ----------------------------------------------------------------------
