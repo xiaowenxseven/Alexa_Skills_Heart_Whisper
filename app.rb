@@ -47,7 +47,7 @@ class CustomHandler < AlexaSkillsRuby::Handler
 		# add a response to Alexa
     # response.set_output_speech_text("I think you are really boring.")
     # response.set_output_speech("Welcome to Sinatra Sampler. I want to tell you a secret. I can't do very much")
-    response.set_output_speech_ssml('<speak>Girl, you are really boring. <audio src="soundbank://soundlibrary/human/amzn_sfx_clear_throat_ahem_01"/> But do not be sad. <amazon:effect name="whispered">I can tell you some interesting secrets</amazon:effect> </speak>')
+    response.set_output_speech_ssml('<speak>Girl, you are really boring. <audio src="soundbank://soundlibrary/human/amzn_sfx_clear_throat_ahem_01"/> But do not be sad. <amazon:effect name="whispered">I can tell you some interesting secrets</amazon:effect> Tell me where you are like “tell soul wanderer that I live in “Pittsburgh”.</speak>')
 		# create a card response in the alexa app
     response.set_simple_card("Soul Wanderer", "Boring is processed")
 		# log the output if needed
@@ -108,7 +108,7 @@ class CustomHandler < AlexaSkillsRuby::Handler
 
     array_of_lines = IO.readlines("jokes.txt")
     resp = array_of_lines.sample
-    response.set_output_speech_text("Fine! Stay at home, girl! I think you must have no boyfriend or girlfriend. Whatever. Listen to me. I’m telling you some jokes. #{resp}. funny? right?")
+    response.set_output_speech_text("Fine! Stay at home, girl! I think you must have no boyfriend or girlfriend. Whatever. Listen to me. I’m telling you some jokes. #{resp}. funny? right")
 		# create a card response in the alexa app
     response.set_simple_card("Soul Wanderer", "Badbot is processed")
 		# log the output if needed
