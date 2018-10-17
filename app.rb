@@ -83,7 +83,7 @@ class CustomHandler < AlexaSkillsRuby::Handler
     puts slots.to_s
 
     cityname = slots["city"]["value"]
-    cityname = slots["city"].to_json
+    cityname = slots["city"].to_s
 
     #cityname = request.intent.slots.city.["name"]
 
