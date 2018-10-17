@@ -58,7 +58,7 @@ class CustomHandler < AlexaSkillsRuby::Handler
     array_of_lines = IO.readlines("jokes.txt")
     resp = array_of_lines.sample
 		# add a response to Alexa
-    response.set_output_speech_ssml("<speak><prosody pitch="low">Ok, boring girl. I tell you something.</prosody>Ok, boring girl. I tell you something. #{resp} funny, right?<speak>")
+    response.set_output_speech_ssml("<speak><prosody pitch='low'>Ok, boring girl. I tell you something.</prosody>Ok, boring girl. I tell you something. #{resp} funny, right?<speak>")
 		# create a card response in the alexa app
     response.set_simple_card("Soul Wanderer", "Jokes is processed")
 		# log the output if needed
