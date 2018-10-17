@@ -91,9 +91,17 @@ class CustomHandler < AlexaSkillsRuby::Handler
     eventsbegin = array_of_lines.sample
 
 
-    response.set_output_speech_text("You live in #{cityname}. #{eventsbegin} #{events_of_pittsburgh(cityname)}. Go! Darling! Love you!")
+    response.set_output_speech_text("You are at #{cityname}. #{eventsbegin} #{events_of_pittsburgh(cityname)}. Go! Darling! Love you!")
     response.set_simple_card("Soul Wanderer", "City test is processed")
     logger.info 'City test processed'
+  end
+
+  on_intent("BAD_BOT") do
+    response.set_output_speech_text("Kidding me? I’m robot, smarter and more efficient than your human brain. Want more function? No way, and you're naughty than me! Bahahaha, just kidding! Please give the talent developer, Seven, more time to develop me. Thanks! She is really telant. Tell me where you are like “tell soul wanderer that I live in “Pittsburgh” to get more interesting events around.")
+		# create a card response in the alexa app
+    response.set_simple_card("Soul Wanderer", "Badbot is processed")
+		# log the output if needed
+    logger.info 'Badbot processed'
   end
 
 end
