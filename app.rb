@@ -86,9 +86,12 @@ class CustomHandler < AlexaSkillsRuby::Handler
     cityname = slots["city"].to_s
 
     #cityname = request.intent.slots.city.["name"]
+
+    array_of_lines = IO.readlines("eventsbegin.txt")
+    eventsbegin = array_of_lines.sample
     
 
-    response.set_output_speech_text("If you see this #{events_of_pittsburgh (cityname)}. congratulations!")
+    response.set_output_speech_text("#{eventsbegin} #{events_of_pittsburgh}. Go! Darling! Love you!")
     response.set_simple_card("Soul Wanderer", "City test is processed")
     logger.info 'City test processed'
   end
