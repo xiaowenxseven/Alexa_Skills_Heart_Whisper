@@ -66,8 +66,10 @@ class CustomHandler < AlexaSkillsRuby::Handler
   end
 
   on_intent("EVENTS") do
+    array_of_lines = IO.readlines("eventsbegin.txt")
+    eventsbegin = array_of_lines.sample
 		# add a response to Alexa
-    response.set_output_speech_text("Ok, boring child. #{events_of_pittsburgh}. Go! Darling! Love you!")
+    response.set_output_speech_text("#{eventsbegin} #{events_of_pittsburgh}. Go! Darling! Love you!")
 		# create a card response in the alexa app
     response.set_simple_card("Soul Wanderer", "Envents is processed")
 		# log the output if needed
