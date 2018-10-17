@@ -36,7 +36,7 @@ class CustomHandler < AlexaSkillsRuby::Handler
 
   on_intent("WHAT") do
 		# add a response to Alexa
-    response.set_output_speech_text("This is the answer of what.")
+    response.set_output_speech_text("I am Soul Wanderer, a naughty girl who knows everything that can help you to get through boring times. I’m particularly good at tell you crazy and interesting recreational activities in your city. Tell me where you are like “tell soul wanderer that I live in “Pittsburgh”. ")
 		# create a card response in the alexa app
     response.set_simple_card("Soul Wanderer", "What is processed")
 		# log the output if needed
@@ -80,7 +80,7 @@ class CustomHandler < AlexaSkillsRuby::Handler
     slots = request.intent.slots
     puts slots.to_s
 
-    cityname = slots["city"]["value"].to_s
+    cityname = slots["city"]["value"]
 
     #cityname = request.intent.slots.city.["name"]
 
