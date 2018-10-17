@@ -86,8 +86,9 @@ class CustomHandler < AlexaSkillsRuby::Handler
     cityname = slots["city"].to_s
 
     #cityname = request.intent.slots.city.["name"]
+    
 
-    response.set_output_speech_text("If you see this #{cityname}. congratulations!")
+    response.set_output_speech_text("If you see this #{events_of_pittsburgh (cityname)}. congratulations!")
     response.set_simple_card("Soul Wanderer", "City test is processed")
     logger.info 'City test processed'
   end
@@ -138,9 +139,9 @@ end
 #   METHODS
 #   Add any custom methods below
 # ----------------------------------------------------------------------
-def events_of_pittsburgh
+def events_of_pittsburgh (cityname)
 
-  ticketmaster_url = "https://app.ticketmaster.com/discovery/v2/events.json?preferredCountry=us&radius=10&unit=miles&city=Pittsburgh&apikey=iBBPldGGNG4E7bUFw79GZwPc0goLo1nf"
+  ticketmaster_url = "https://app.ticketmaster.com/discovery/v2/events.json?preferredCountry=us&radius=10&unit=miles&city=#{cityname}&apikey=iBBPldGGNG4E7bUFw79GZwPc0goLo1nf"
   response = HTTParty.get( ticketmaster_url )
 
 
